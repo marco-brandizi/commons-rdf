@@ -53,7 +53,6 @@
 		</dependency>
 		<!-- Uncomment below and disable jena-osgi to access the regular non-osgi 
 			 Jena dependencies (e.g. for debugging) -->
-		<!-- 
 	
 		<dependency>
 			<groupId>org.apache.jena</groupId>
@@ -62,14 +61,13 @@
 			<type>pom</type>
 			<scope>optional</scope>
 		</dependency>
-				--> 
 
 		<!-- As commons-rdf-jena is an OSGi bundle, we'll use the Jena OSGi bundle -->
-		<dependency>
+		<!-- 		<dependency>
 			<groupId>org.apache.jena</groupId>
 			<artifactId>jena-osgi</artifactId>
 			<version>${jena.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- Additional bundles needed by jena-osgi -->
 		<dependency>

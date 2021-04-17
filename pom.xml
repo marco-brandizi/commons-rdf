@@ -49,7 +49,7 @@
         <commons.jira.id>COMMONSRDF</commons.jira.id>
         <commons.jira.pid>12316620</commons.jira.pid>
         <commons.site.path>rdf</commons.site.path>
-        <commons.jacoco.version>0.7.9</commons.jacoco.version>
+        <commons.jacoco.version>0.8.6</commons.jacoco.version>
 	    <commons.scmPubUrl>https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-rdf/</commons.scmPubUrl>
         <!--
         <commons.scmPubCheckoutDirectory>${project.build.directory}/site-content</commons.scmPubCheckoutDirectory>
@@ -63,7 +63,7 @@
 	          is cross-compatible -->
         <jsonldjava.version>0.11.1</jsonldjava.version>
         <rdf4j.version>2.2.2</rdf4j.version>
-        <jena.version>3.5.0</jena.version>
+        <jena.version>4.1.0-SNAPSHOT</jena.version>
         <!--  NOTE: dexx and xerces versions should match 
         the versions marked as <optional> in jena-osgi pom
          -->
@@ -323,6 +323,8 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+												<!-- TODO: doesn't work for me -->
+												<phase>none</phase>                        
                     </execution>
                 </executions>
                 <configuration>
@@ -461,6 +463,7 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
+
                 <plugin>
                     <!-- Check if we broke compatibibility against previous release -->
                     <groupId>com.github.siom79.japicmp</groupId>
@@ -494,6 +497,7 @@
                       </dependency>
                     </dependencies>
                 </plugin>
+                
                 <!--
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -503,6 +507,15 @@
                         <skip>true</skip>
                     </configuration>
                 </plugin>-->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-maven-plugin</artifactId>
+                    <version>1.20</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+                
                 <plugin>
                     <groupId>org.apache.rat</groupId>
                     <artifactId>apache-rat-plugin</artifactId>
@@ -527,28 +540,28 @@
     </build>
     <reporting>
         <plugins>
-            <plugin>
-                 <groupId>org.apache.maven.plugins</groupId>
-                 <artifactId>maven-javadoc-plugin</artifactId>
-                 <configuration>
-                     <additionalparam>-Xdoclint:all</additionalparam>
-                 </configuration>
-                 <reportSets>
-                   <reportSet><!-- by default, id = "default" -->
-                     <reports><!-- select non-aggregate reports -->
-                       <report>javadoc</report>
-                       <report>test-javadoc</report>
-                     </reports>
-                   </reportSet>
-                   <reportSet><!-- aggregate reportSet, to define in poms having modules -->
-                     <id>aggregate</id>
-                     <inherited>false</inherited><!-- don't run aggregate in child modules -->
-                     <reports>
-                       <report>aggregate</report>
-                     </reports>
-                   </reportSet>
-                 </reportSets>
-             </plugin>
+<!--             <plugin> -->
+<!--                  <groupId>org.apache.maven.plugins</groupId> -->
+<!--                  <artifactId>maven-javadoc-plugin</artifactId> -->
+<!--                  <configuration> -->
+<!--                      <additionalparam>-Xdoclint:all</additionalparam> -->
+<!--                  </configuration> -->
+<!--                  <reportSets> -->
+<!--                    <reportSet>by default, id = "default" -->
+<!--                      <reports>select non-aggregate reports -->
+<!--                        <report>javadoc</report> -->
+<!--                        <report>test-javadoc</report> -->
+<!--                      </reports> -->
+<!--                    </reportSet> -->
+<!--                    <reportSet>aggregate reportSet, to define in poms having modules -->
+<!--                      <id>aggregate</id> -->
+<!--                      <inherited>false</inherited>don't run aggregate in child modules -->
+<!--                      <reports> -->
+<!--                        <report>aggregate</report> -->
+<!--                      </reports> -->
+<!--                    </reportSet> -->
+<!--                  </reportSets> -->
+<!--              </plugin> -->
              <plugin>
                  <groupId>org.apache.maven.plugins</groupId>
                  <artifactId>maven-checkstyle-plugin</artifactId>
