@@ -1,5 +1,3 @@
-# The GitHub Actions file
-
 name: Standard Build
 
 on:
