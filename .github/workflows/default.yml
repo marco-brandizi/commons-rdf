@@ -1,4 +1,4 @@
-name: Standard Build
+name: Default Build
 
 on:
   push:
