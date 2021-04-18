@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>org.apache.commons</groupId>
 		<artifactId>commons-rdf-parent</artifactId>
-		<version>0.6.0-SNAPSHOT</version>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>commons-rdf-jena</artifactId>
@@ -59,7 +59,6 @@
 			<artifactId>apache-jena-libs</artifactId>
 			<version>${jena.version}</version>
 			<type>pom</type>
-			<scope>optional</scope>
 		</dependency>
 
 		<!-- As commons-rdf-jena is an OSGi bundle, we'll use the Jena OSGi bundle -->
