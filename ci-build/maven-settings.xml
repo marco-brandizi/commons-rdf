@@ -6,12 +6,4 @@
       <password>${env.BRANDIZI_REPO_PWD}</password>
     </server>
   </servers>
-    <profiles>
-	    <profile>
-	      <id>brandizi-deployment</id>
-	      <activation>
-	      	<activeByDefault>true</activeByDefault>
-	      </activation>
-	    </profile>
-	</profiles>  
 </settings>

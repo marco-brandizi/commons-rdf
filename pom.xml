@@ -405,6 +405,18 @@
                 </configuration>
               -->
             </plugin>
+						<plugin>
+	            <groupId>org.apache.rat</groupId>
+	            <artifactId>apache-rat-plugin</artifactId>
+	            <configuration>
+	            	<skip>true</skip>
+	            </configuration>
+              <executions>
+              	<execution>
+              		<phase>none</phase>
+              	</execution>
+              </executions>
+  	        </plugin>            
         </plugins>
         <pluginManagement>
             <plugins>
@@ -533,7 +545,13 @@
                             <exclude>**/src/main/resources/NOTICE</exclude>
                             <exclude>**/src/main/resources/LICENSE</exclude>
                         </excludes>
+					            	<skip>true</skip>
                     </configuration>
+                    <executions>
+                    	<execution>
+                    		<phase>none</phase>
+                    	</execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -618,6 +636,17 @@
                     <jvmArgs>-Duser.language=en</jvmArgs>
                 </configuration>
             </plugin>
+						<plugin>
+	            <groupId>org.apache.rat</groupId>
+	            <artifactId>apache-rat-plugin</artifactId>
+	            <reportSets>
+	                <reportSet>
+	                    <configuration>
+	                        <skip>true</skip>
+	                    </configuration>
+	                </reportSet>
+	            </reportSets>
+  	        </plugin>            
         </plugins>
     </reporting>
 
@@ -659,13 +688,27 @@
         </profile>
     </profiles>
 
-    <distributionManagement>
+    <!--  distributionManagement>
       <site>
         <id>commonsrdf-site</id>
         <name>Apache Commons Site SVN</name>
         <url>scm:svn:${commons.scmPubUrl}</url>
       </site>
       <downloadUrl>${project.url}download.html</downloadUrl>
-    </distributionManagement>
+    </distributionManagement -->
+
+	<distributionManagement>
+
+    <snapshotRepository>
+    	<id>mbrandizi.jfrog.io</id>
+			<url>https://mbrandizi.jfrog.io/artifactory/maven</url>
+    </snapshotRepository>
+
+    <repository>
+    	<id>mbrandizi.jfrog.io</id>
+			<url>https://mbrandizi.jfrog.io/artifactory/maven</url>
+    </repository>	
+    
+	</distributionManagement>  
 
 </project>
